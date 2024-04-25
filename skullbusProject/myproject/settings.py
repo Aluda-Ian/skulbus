@@ -11,9 +11,25 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 """
 
 import os
+from pathlib import Path
+import dj_database_url
+from decouple import config
+from dotenv import load_dotenv
 
-# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+
+# Load environment variables from .env file
+# BASE_DIR = Path(__file__).resolve().parent.parent
+# dotenv_path = BASE_DIR / '.env'
+# load_dotenv(dotenv_path)
+DATABASE_URL = "postgresql://postgres:AaXLnerElQDVuMpXyVAxslwAeENLxrxR@roundhouse.proxy.rlwy.net:28988/railway"
+
+
+
+# #======old code========
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+# dotenv_path = BASE_DIR / '.env'
+
 
 
 # Quick-start development settings - unsuitable for production
@@ -25,7 +41,7 @@ SECRET_KEY = 'betsff(e3$v-n@gc53*afg^r36tiz$4#lujpjxub1!(@zkxfl9'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -56,7 +72,7 @@ ROOT_URLCONF = 'myproject.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -75,12 +91,24 @@ WSGI_APPLICATION = 'myproject.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#     }
+# }
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'railway',
+        'USER': 'postgres',
+        'PASSWORD': 'AaXLnerElQDVuMpXyVAxslwAeENLxrxR',
+        'HOST': 'roundhouse.proxy.rlwy.net',
+        'PORT': '28988',
     }
 }
+
 
 
 # Password validation
@@ -121,3 +149,6 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+
+# settings.py
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
