@@ -1,0 +1,66 @@
+{% extends 'myapp/base.html' %}
+{% block content %}
+<div class="d-flex flex-column w-100 justify-content-spacebetween align-items-center " style="margin-top: 30px;">
+   
+    <div class="col-lg-12 ">
+        <div class=" jumbotron card card-default rounded-0 shadow">
+            <div style="background-color: yellow;" class="card-header">
+                <h4 class="card-title"><b>Search Trip</b></h4>
+            </div>
+            <div class="card-body" style="margin-top: 30px;">
+                <div class="container-fluid">
+                    <form action="{% url 'findbus' %}" method="post">
+                        {% csrf_token %}
+                        <div class="mdc-layout-grid">
+                            <div class="mdc-layout-grid__inner ">
+                                <div class="form-group " style="width: 100%;">
+                                <div>
+                                    <label for="dATE" class="control-label">Date</label>
+                                    <input name='date' class="form-control" type="date">
+                                </div>
+                                </div>
+                                <div class="form-group" style="display: flex; align-items:center; justify-content: space-between;">
+                                    <div class="form-group " style="width: 100%; margin: 1px;">
+                                        <label for="depart" class="control-label">School</label>
+                                        <div>
+                                            <input name='source' class="form-control" type="text" id="example-email-input">
+                                        </div>
+                                    </div>
+                                    <div class="form-group " style="width: 100%; margin: 1px;">
+                                        <label for="destination" class="control-label">Home</label>
+                                        <div>
+                                            <input name='destination' class="form-control" type="text">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group" style="width: 100%;">
+                                <button type="submit" style=" background-color: black; color: white; min-width: 100%; " class="btn  rounded-0 "> Search</button>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </form>
+                    <div class="text-center">
+                        <hr>
+                        <div class="card">
+                            <div class="card-title">
+                                <h3>Heads up</h3>
+                            <h4  class="card-body">{{error}}</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function() {
+        $('.select2').select2({
+            width:"100%",
+            placeholder: "Please Select Here",
+        })
+    })
+</script>
+
+{% endblock %}

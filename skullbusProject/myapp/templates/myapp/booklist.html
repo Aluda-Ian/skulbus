@@ -1,0 +1,104 @@
+{% extends 'myapp/base.html' %}
+{% block content %}
+<h3>{{msg}}</h3>
+
+<section  style="background-color:White;" class="jumbotron text-center text-black">
+    <h2>List of buses</h2>
+    <table class="table table-striped">
+        <thead style="background-color: rgb(0, 0, 0);color: white;">
+        <td>BOOKING NUMBER</td>
+        <td>USER NAME</td>
+        <td>BUS NAME</td>
+        <td>SCHOOL</td>
+        <td>DESTINATION</td>
+        <td>NUM OF SEATS</td>
+        <td>PRICE</td>
+        <td>DATE</td>
+        <td>TIME</td>
+        <td>STATUS</td>
+        </thead>
+    
+        {% for row in book_list %}
+        <tr>
+            <td>{{row.id}}</td>
+            <td>{{row.name}}</td>
+            <td>{{row.bus_name}}</td>
+            <td>{{row.source}}</td>
+            <td>{{row.dest}}</td>
+            <td>{{row.nos}}</td>
+            <td>{{row.price}}</td>
+            <td>{{row.date}}</td>
+            <td>{{row.time}}</td>
+            <td>{{row.status}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    
+    <div class="container jumbotron">
+        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal">
+            Bill details
+        </button>
+        <!-- The Modal -->
+        <div class="modal" id="myModal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+    
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                        <h4 class="modal-title">Modal Heading</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+    
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                        {% for row in book_list %}
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item"><b>Bus name:</b> {{row.bus_name}}</li>
+                            <li class="list-group-item"><b>Starting point:</b> {{row.source}}</li>
+                            <li class="list-group-item"><b>Destination point:</b> {{row.dest}}</li>
+                            <li class="list-group-item"><b>Number of seats:</b> {{row.nos}}</li>
+                            <li class="list-group-item"><b>Price:</b> {{row.price}}</li>
+                            <li class="list-group-item"><b>Cost:</b> {{row.cost}}</li>
+                            <li class="list-group-item"><b>Date:</b> {{row.date}}</li>
+                            <li class="list-group-item"><b>Time:</b> {{row.time}}</li>
+                            <li class="list-group-item"><b>Status:</b> {{row.status}}</li>
+                        </ul>
+                        {% endfor %}
+    
+    
+                    </div>
+    
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+                    </div>
+    
+                </div>
+            </div>
+        </div>
+        <form action="{% url 'cancellings' %}" method="post" style="align-items: center;" >
+        <h3>Choose bus to Cancel</h3>
+        {% csrf_token %}
+        <div class="col-auto">
+            <label for="example-email-input" class="col-2 col-form-label">Booking Number</label>
+            <div>
+                <input name='bus_id' class="form-control" type="number" id="example-email-input">
+            </div>
+        </div>
+    
+        <br>
+        <br>
+            <div>
+                <button type="submit" class="form-control btn btn-danger ">Cancel bus</button>
+        </div>
+      
+    
+    
+        {{error}}
+    
+        </form>
+    </div>
+</section>
+
+
+{% endblock %}
