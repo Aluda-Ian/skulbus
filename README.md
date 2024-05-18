@@ -13,10 +13,15 @@ Limited communication and tracking: Parents have minimal information about their
 #features to solve the above problems
 
 Online bus booking and payment dashboard for parents Linking neighboring schools so that the bus can pick up students who are going to the same locality eg. western Kenya for capacity utilization
+
 Notification system for parents and school administration to know their student's journey and notification
+
 Easy bookiping for the matatu owners
+
 Real-Time Tracking: Implement GPS tracking and real-time monitoring of school buses, accessible by parents, schools, and transportation authorities via a mobile app.
+
 Safety Alerts: Provide real-time alerts for parents and schools about bus arrival times, delays, and any incidents during transit.
+
 Emergency wallet - this will help parents to deposit some money and use it when schools are closed abruptly
 
 
