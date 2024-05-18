@@ -6,8 +6,11 @@ accoding to UN , 1 in 2 people in the city have a convinient access to public tr
 Parents of Kenyan high school students face a complex, inefficient, and often non-transparent system for arranging student transport. This causes stress, and financial uncertainty, and can negatively impact a student's education. due to
 
 Unreliable vetting of transport providers: Parents lack information about driver qualifications and vehicle safety standards.
+
 Cash handling vulnerabilities: Complex cash collection processes raise concerns about transparency and potential misuse of funds.
+
 Limited communication and tracking: Parents have minimal information about their child's journey, creating anxiety and hindering emergency response.
+
 #currently teachers and parents coordinate with the transport providers, one of the parents or a teacher is tasked with collecting of the fares which is a tiresome activity and also poses challenges of honesty and transparency.
 
 #features to solve the above problems
@@ -27,7 +30,9 @@ Emergency wallet - this will help parents to deposit some money and use it when 
 
 #Efficiency and Optimization:
 Route Optimization: Use AI and machine learning algorithms to determine the most efficient routes, reducing travel time, fuel consumption, and emissions.
+
 Dynamic Scheduling: Adapt bus schedules in real-time based on traffic conditions, weather, and student needs, ensuring timely pickups and drop-offs.
+
 Fleet Management: Monitor and manage the bus fleet's performance, maintenance needs, and fuel efficiency through an integrated dashboard.
 
 
